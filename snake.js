@@ -22,10 +22,11 @@ window.onload = () => {
     init () {
       this.canvas.width = this.canvasWidth;
       this.canvas.height = this.canvasHeight;
-      this.canvas.style.border = "30px solid gray";
+      this.canvas.style.border = "8px solid #CAB8FF";
+      this.canvas.style.borderRadius = "12px";
       this.canvas.style.margin = "25px auto";
       this.canvas.style.display = "block";
-      this.canvas.style.backgroundColor = "#ddd";
+      this.canvas.style.backgroundColor = "#F8F6FA";
       document.body.appendChild(this.canvas);
       this.launch();
   }
@@ -69,7 +70,6 @@ window.onload = () => {
     }
 
   }
-
 
   class Snake {
     constructor(direction, ...body) {
@@ -183,24 +183,19 @@ window.onload = () => {
     static gameOver (ctx, centreX, centreY) {
       ctx.save();
       ctx.font = "bold 100px sans-serif";
-      ctx.fillStyle = "#000";
+      ctx.fillStyle = "#261042";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      // ctx.strokeStyle = "white";
-      ctx.lineWidth = 5;
-      // ctx.strokeText("Game Over", centreX, centreY - 180);
       ctx.fillText("Game Over", centreX, centreY - 180);
       ctx.font = "bold 30px sans-serif";
-      // ctx.strokeText("Press spacebar to play again", centreX, centreY - 120);
       ctx.fillText("Press spacebar to play again", centreX, centreY - 120);
       ctx.restore();
     }
 
-
     static drawScore (ctx, centreX, centreY, score) {
       ctx.save();
       ctx.font = "bold 200px sans-serif";
-      ctx.fillStyle = "gray";
+      ctx.fillStyle = "#2610424D";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText(score.toString(), centreX, centreY);
@@ -209,7 +204,7 @@ window.onload = () => {
 
     static drawSnake (ctx, blockSize, snake) {
       ctx.save();
-      ctx.fillStyle = "#ff0000";
+      ctx.fillStyle = "#6F2DBD";
       for (let block of snake.body) {
         this.drawBlock(ctx, block, blockSize);
       }
@@ -221,7 +216,7 @@ window.onload = () => {
       const x = apple.position[0] * blockSize + radius;
       const y = apple.position[1] * blockSize + radius;
       ctx.save();
-      ctx.fillStyle = "#33cc33";
+      ctx.fillStyle = "#00BFB2";
       ctx.beginPath();
       ctx.arc(x, y, radius, 0, Math.PI * 2, true);
       ctx.fill();
@@ -237,9 +232,6 @@ window.onload = () => {
 
   let myGame = new Game();
   myGame.init();
-
-  // let myGame2 = new Game(600);
-  // myGame2.init();
 
   document.onkeydown = (e) => {
       const key = e.key;
@@ -259,16 +251,11 @@ window.onload = () => {
               break;
           case ' ':
               myGame.launch();
-              myGame2.launch();
               return;
           default:
               return;
       }
       myGame.snakee.setDirection(newDirection);
-      myGame2.snakee.setDirection(newDirection);
   };
 
-
-
 }
-
