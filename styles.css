@@ -1,0 +1,17 @@
+* {
+  background-color: #232323;
+}
+
+body, html {
+  height: 99vh;
+}
+.command {
+  font-family: sans-serif;
+  color: aliceblue;
+  display: flex;
+  justify-content: space-around;
+}
+
+.command h1 {
+  margin-top: 0;
+}
