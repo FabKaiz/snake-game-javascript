@@ -68,6 +68,6 @@ export default class Game {
   }
 
   speedUp() {
-    this.delay /= 1.5;
+    this.delay /= 1.3;
   }
 }
